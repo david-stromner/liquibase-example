@@ -1,0 +1,5 @@
+Connection details for postgres:
+Host: localhost
+Port: 23182
+Username: postgres
+Password: postgres
