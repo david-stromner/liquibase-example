@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: 'postgres:latest'
+    container_name: 'postgres-liquibase-example'
+    ports:
+      - "23182:5432" # Default POSTGRES port
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: postgres
