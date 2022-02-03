@@ -31,6 +31,7 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.7.xsd">
         <tagDatabase tag="1.0.0"></tagDatabase>
     </changeSet>
 
+    <!-- mvn liquibase:rollback -Dliquibase.rollbackCount=1 -->
     <changeSet id="5" author="">
         <insert tableName="Vehicle">
             <column name="id" value="2"></column>
