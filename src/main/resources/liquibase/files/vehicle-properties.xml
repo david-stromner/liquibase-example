@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.7.xsd">
+
+    <changeSet id="2" author="David">
+        <createTable tableName="Vehicle">
+            <column name="id" type="int">
+                <constraints primaryKey="true"></constraints>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="0" author="">
+        <addColumn tableName="Vehicle">
+            <column name="type" type="java.lang.String"></column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="3" author="">
+        <insert tableName="Vehicle">
+            <column name="id" value="1"></column>
+            <column name="type" value="bus"></column>
+        </insert>
+    </changeSet>
+
+    <!-- mvn liquibase:rollback -Dliquibase.rollbackTag=1.0.0 -->
+    <changeSet id="4" author="">
+        <tagDatabase tag="1.0.0"></tagDatabase>
+    </changeSet>
+
+    <changeSet id="5" author="">
+        <insert tableName="Vehicle">
+            <column name="id" value="2"></column>
+            <column name="type" value="truck"></column>
+        </insert>
+        <rollback>
+            <delete tableName="Vehicle">
+                <where>id=2</where>
+            </delete>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>
